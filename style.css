@@ -65,8 +65,9 @@ body {
 
 .logo img {
   height: 36px;
-  display: block;
 }
+
+/* NAV MENU */
 
 .nav-menu {
   display: flex;
@@ -77,11 +78,18 @@ body {
   text-decoration: none;
   font-weight: 500;
   color: #374151;
-  transition: var(--transition);
 }
 
 .nav-link:hover {
   color: var(--primary);
+}
+
+/* MENU ICON */
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
 /* =====================================================
@@ -459,13 +467,28 @@ tbody tr:hover {
 }
 
 @media (max-width: 768px) {
-  .header-container {
-  flex-direction: column;
-  gap: 10px;
+ .menu-toggle {
+  display: block;
 }
 
 .nav-menu {
-  gap: 16px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  width: 220px;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: none;
+}
+
+.nav-menu.active {
+  display: flex;
+}
+
+.nav-link {
+  padding: 10px 0;
 }
    .container {
     padding: 18px;
@@ -553,5 +576,6 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
 
 
