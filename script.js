@@ -27,7 +27,7 @@ if(!currentCgpaInput){
   currentCgpaInput.style.margin = "10px 0";
   currentCgpaInput.style.width = "100%";
   currentCgpaInput.style.padding = "8px";
-  if(nextCreditInput) nextCreditInput.parentNode.insertBefore(currentCgpaInput, nextCreditInput);
+  if(targetCgpaInput) targetCgpaInput.parentNode.insertBefore(currentCgpaInput, targetCgpaInput);
 }
 
 // =========================
@@ -282,3 +282,4 @@ if(menuToggle && navMenu){
 window.addEventListener("DOMContentLoaded", function(){
   if(semesterSection) addSemester();
 });
+
