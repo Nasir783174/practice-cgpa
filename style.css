@@ -40,6 +40,49 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 36px;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #374151;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
 
 /* =====================================================
    CONTAINER
@@ -416,7 +459,15 @@ tbody tr:hover {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .header-container {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-menu {
+  gap: 16px;
+}
+   .container {
     padding: 18px;
   }
 
@@ -502,4 +553,5 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
 
