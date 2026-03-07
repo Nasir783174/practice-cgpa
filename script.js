@@ -43,7 +43,10 @@ if(nextCreditInput){
   nextCreditInput.addEventListener("input", calculateTarget);
 }
 if(currentCgpaInput){
-  currentCgpaInput.addEventListener("input", calculateTarget);
+  currentCgpaInput.addEventListener("input", () => {
+    currentCgpaInput.dataset.manual = "true";
+    calculateTarget();
+  });
 }
 
 // =========================
@@ -130,14 +133,20 @@ function removeSemester(btn) {
 function calculateCGPA() {
   let totalPoints = 0, totalCredits = 0;
 
-  document.querySelectorAll("tbody tr").forEach(row => {
-    const credit = parseFloat(row.querySelector(".credit")?.value);
-    const grade = parseFloat(row.querySelector(".grade")?.value);
+  document.querySelectorAll("#semesterSection .card").forEach(semester => {
+    let semPoints = 0, semCredits = 0;
+    semester.querySelectorAll("tbody tr").forEach(row => {
+      const credit = parseFloat(row.querySelector(".credit")?.value) || 0;
+      const grade = parseFloat(row.querySelector(".grade")?.value) || 0;
+      semPoints += credit * grade;
+      semCredits += credit;
+    });
+    const semGpa = semCredits ? (semPoints / semCredits).toFixed(2) : "0.00";
+    const sgpaSpan = semester.querySelector(".semester-gpa");
+    if(sgpaSpan) sgpaSpan.textContent = `SGPA: ${semGpa}`;
 
-    if(!isNaN(credit) && !isNaN(grade)){
-      totalPoints += credit * grade;
-      totalCredits += credit;
-    }
+    totalPoints += semPoints;
+    totalCredits += semCredits;
   });
 
   const cgpa = totalCredits ? (totalPoints / totalCredits).toFixed(2) : "0.00";
@@ -146,7 +155,6 @@ function calculateCGPA() {
   if(totalCreditDisplay) totalCreditDisplay.textContent = totalCredits;
   updateStatus(cgpa);
 
-  // Update current CGPA input automatically if user has not overridden manually
   if(currentCgpaInput && !currentCgpaInput.dataset.manual){
     currentCgpaInput.value = cgpa;
   }
@@ -154,7 +162,9 @@ function calculateCGPA() {
   calculateTarget();
 }
 
+// =========================
 // Update status message
+// =========================
 function updateStatus(cgpa){
   if(!academicStatus) return;
   academicStatus.innerHTML = "";
@@ -203,12 +213,6 @@ function calculateTarget(){
     if(targetWarning) targetWarning.textContent = "";
   }
 }
-
-// Detect manual change on current CGPA input
-currentCgpaInput.addEventListener("input", () => {
-  currentCgpaInput.dataset.manual = "true";
-  calculateTarget();
-});
 
 // =========================
 // PDF DOWNLOAD
@@ -282,4 +286,3 @@ if(menuToggle && navMenu){
 window.addEventListener("DOMContentLoaded", function(){
   if(semesterSection) addSemester();
 });
-
