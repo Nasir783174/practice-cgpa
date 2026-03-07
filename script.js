@@ -39,6 +39,7 @@ function addSemester() {
   semesterDiv.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center;">
       <h3>Semester ${semesterCount}</h3>
+      <span class="semester-gpa">SGPA: 0.00</span>
       <button class="btn-danger" onclick="removeSemester(this)">Delete</button>
     </div>
 
@@ -263,4 +264,5 @@ if(menuToggle && navMenu){
 window.addEventListener("DOMContentLoaded", function(){
   if(semesterSection) addSemester();
 });
+
 
