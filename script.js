@@ -236,9 +236,16 @@ document.getElementById("downloadPdf").addEventListener("click", function () {
 
   doc.save("Full_Marksheet.pdf");
 });
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", function () {
+  navMenu.classList.toggle("active");
+});
 
 // Auto create first semester when page loads
 window.addEventListener("DOMContentLoaded", function () {
   addSemester();
 
 });
+
