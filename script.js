@@ -238,6 +238,13 @@ document.getElementById("downloadPdf").addEventListener("click", function () {
 });
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
+if(menuToggle && navMenu){
+  menuToggle.addEventListener("click", function () {
+    navMenu.classList.toggle("active");
+  });
+}
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
 menuToggle.addEventListener("click", function () {
   navMenu.classList.toggle("active");
@@ -248,4 +255,5 @@ window.addEventListener("DOMContentLoaded", function () {
   addSemester();
 
 });
+
 
