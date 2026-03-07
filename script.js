@@ -103,6 +103,19 @@ function removeSemester(btn) {
   btn.closest(".card")?.remove();
   calculateCGPA();
 }
+// inside calculateCGPA
+document.querySelectorAll("#semesterSection .card").forEach(semester => {
+  let semPoints = 0, semCredits = 0;
+  semester.querySelectorAll("tbody tr").forEach(row => {
+    const credit = parseFloat(row.querySelector(".credit")?.value) || 0;
+    const grade = parseFloat(row.querySelector(".grade")?.value) || 0;
+    semPoints += credit * grade;
+    semCredits += credit;
+  });
+  const semGpa = semCredits ? (semPoints / semCredits).toFixed(2) : "0.00";
+  const sgpaSpan = semester.querySelector(".semester-gpa");
+  if(sgpaSpan) sgpaSpan.textContent = `SGPA: ${semGpa}`;
+});
 
 // =========================
 // CGPA CALCULATION
@@ -250,3 +263,4 @@ if(menuToggle && navMenu){
 window.addEventListener("DOMContentLoaded", function(){
   if(semesterSection) addSemester();
 });
+
