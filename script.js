@@ -14,22 +14,6 @@ const nextCreditInput = document.getElementById("nextCredit");
 const requiredSgpaDisplay = document.getElementById("requiredSgpa");
 const targetWarning = document.getElementById("targetWarning");
 
-// NEW: Current/Starting CGPA Input
-let currentCgpaInput = document.getElementById("currentCgpa");
-if(!currentCgpaInput){
-  currentCgpaInput = document.createElement("input");
-  currentCgpaInput.type = "number";
-  currentCgpaInput.step = "0.01";
-  currentCgpaInput.max = "4";
-  currentCgpaInput.min = "0";
-  currentCgpaInput.id = "currentCgpa";
-  currentCgpaInput.placeholder = "Current CGPA (auto or manual)";
-  currentCgpaInput.style.margin = "10px 0";
-  currentCgpaInput.style.width = "100%";
-  currentCgpaInput.style.padding = "8px";
-  if(nextCreditInput) nextCreditInput.parentNode.insertBefore(currentCgpaInput, nextCreditInput);
-}
-
 // =========================
 // EVENT LISTENERS
 // =========================
@@ -41,9 +25,6 @@ if(targetCgpaInput){
 }
 if(nextCreditInput){
   nextCreditInput.addEventListener("input", calculateTarget);
-}
-if(currentCgpaInput){
-  currentCgpaInput.addEventListener("input", calculateTarget);
 }
 
 // =========================
@@ -146,15 +127,23 @@ function calculateCGPA() {
   if(totalCreditDisplay) totalCreditDisplay.textContent = totalCredits;
   updateStatus(cgpa);
 
-  // Update current CGPA input automatically if user has not overridden manually
-  if(currentCgpaInput && !currentCgpaInput.dataset.manual){
-    currentCgpaInput.value = cgpa;
-  }
+  // Update each semester SGPA
+  document.querySelectorAll("#semesterSection .card").forEach(semester => {
+    let semPoints = 0, semCredits = 0;
+    semester.querySelectorAll("tbody tr").forEach(row => {
+      const credit = parseFloat(row.querySelector(".credit")?.value) || 0;
+      const grade = parseFloat(row.querySelector(".grade")?.value) || 0;
+      semPoints += credit * grade;
+      semCredits += credit;
+    });
+    const semGpa = semCredits ? (semPoints / semCredits).toFixed(2) : "0.00";
+    const sgpaSpan = semester.querySelector(".semester-gpa");
+    if(sgpaSpan) sgpaSpan.textContent = `SGPA: ${semGpa}`;
+  });
 
   calculateTarget();
 }
 
-// Update status message
 function updateStatus(cgpa){
   if(!academicStatus) return;
   academicStatus.innerHTML = "";
@@ -175,22 +164,27 @@ function updateStatus(cgpa){
 }
 
 // =========================
-// TARGET SGPA CALCULATION
+// TARGET SGPA CALCULATION (Current CGPA editable)
 // =========================
 function calculateTarget(){
-  if(!currentCgpaInput || !targetCgpaInput || !nextCreditInput || !requiredSgpaDisplay) return;
+  if(!cgpaDisplay || !totalCreditDisplay || !requiredSgpaDisplay) return;
 
-  let currentCgpa = parseFloat(currentCgpaInput.value) || 0;
-  const targetCgpa = parseFloat(targetCgpaInput.value);
-  const nextCredits = parseFloat(nextCreditInput.value);
+  // Allow manual override of current CGPA
+  let currentCgpa = parseFloat(cgpaDisplay.textContent);
+  const manualCgpa = parseFloat(document.getElementById("currentCgpaInput")?.value);
+  if(!isNaN(manualCgpa)) currentCgpa = manualCgpa;
 
-  if(!targetCgpa || !nextCredits){
+  const totalCredits = parseFloat(totalCreditDisplay.textContent);
+  const targetCgpa = parseFloat(targetCgpaInput?.value);
+  const nextCredits = parseFloat(nextCreditInput?.value);
+
+  if(!targetCgpa || !nextCredits || totalCredits === 0){
     requiredSgpaDisplay.textContent = "0.00";
     if(targetWarning) targetWarning.textContent = "";
     return;
   }
 
-  const required = ((targetCgpa * (parseFloat(totalCreditDisplay.textContent || 0) + nextCredits)) - (currentCgpa * parseFloat(totalCreditDisplay.textContent || 0))) / nextCredits;
+  const required = ((targetCgpa * (totalCredits + nextCredits)) - currentCgpa * totalCredits) / nextCredits;
 
   if(required > 4){
     requiredSgpaDisplay.textContent = required.toFixed(2);
@@ -203,12 +197,6 @@ function calculateTarget(){
     if(targetWarning) targetWarning.textContent = "";
   }
 }
-
-// Detect manual change on current CGPA input
-currentCgpaInput.addEventListener("input", () => {
-  currentCgpaInput.dataset.manual = "true";
-  calculateTarget();
-});
 
 // =========================
 // PDF DOWNLOAD
