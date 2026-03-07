@@ -91,6 +91,61 @@ body {
   font-size: 26px;
   cursor: pointer;
 }
+/* =========================
+   BLOG SECTION
+========================= */
+
+.blog-section {
+  margin-top: 40px;
+}
+
+.blog-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+/* GRID */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* CARD */
+
+.blog-card {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.08);
+}
+
+.blog-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.blog-card p {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
 
 /* =====================================================
    CONTAINER
@@ -465,10 +520,22 @@ tbody tr:hover {
     position: static;
   }
 }
+@media (max-width: 900px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 @media (max-width: 768px) {
  .menu-toggle {
   display: block;
+}
+    .nav-menu {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
 
 .nav-menu {
@@ -539,6 +606,33 @@ tbody tr:hover {
     font-size: 14px;
   }
 }
+@media (max-width: 500px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   MOBILE MENU ACTIVE STATE
+========================= */
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 
 @media (max-width: 480px) {
   input,
@@ -576,6 +670,7 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
 
 
 
