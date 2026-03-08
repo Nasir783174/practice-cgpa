@@ -448,7 +448,7 @@ tbody tr:hover {
 }
 
 .formula-image-wrapper {
-  aspect-ratio: 5 / 4;
+  /*aspect-ratio: 5 / 4;*/
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -622,3 +622,4 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
