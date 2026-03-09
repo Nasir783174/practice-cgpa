@@ -1,79 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Your Blog Title Here</title>
-<link rel="canonical" href="https://cgpacalculator.dev/your-blog-file.html">
-<meta name="description" content="Write a short description of your blog for SEO">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="cgpa-calculator.png">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How to Calculate CGPA | Complete Student Guide</title>
+<meta name="description" content="Learn how to calculate CGPA step by step. Understand grade points, credit hours, and simple formulas used by universities worldwide.">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+.blog-container{
+max-width:900px;
+margin:auto;
+padding:20px;
+line-height:1.7;
+}
+
+.blog-container h1{
+margin-bottom:20px;
+}
+
+.blog-container h2{
+margin-top:35px;
+margin-bottom:10px;
+}
+
+.blog-container table{
+width:100%;
+border-collapse:collapse;
+margin:20px 0;
+}
+
+.blog-container table th,
+.blog-container table td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+.highlight{
+background:#f5f7ff;
+padding:15px;
+border-left:4px solid #4f46e5;
+margin:20px 0;
+}
+
+.tip{
+background:#f0fff4;
+padding:15px;
+border-left:4px solid #22c55e;
+margin:20px 0;
+}
+
+ul{
+margin-left:20px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<!-- ===================== HEADER ===================== -->
-<header class="site-header">
-  <div class="header-container">
+<div class="blog-container">
 
-    <div class="logo">
-      <a href="/">
-        <img src="cgpa-calculator.png" alt="CGPA Calculator Logo">
-      </a>
-    </div>
+<h1>How to Calculate CGPA</h1>
 
-    <div class="menu-toggle" id="menuToggle">☰</div>
+<h2>What is CGPA And Why Does It Matter?</h2>
 
-    <nav class="nav-menu" id="navMenu">
-      <a href="/" class="nav-link">CGPA Calculator</a>
-      <a href="/cgpa-information.html" class="nav-link">CGPA Information</a>
-    </nav>
+<p>
+If you are a student, you have probably seen the term <strong>CGPA</strong> on your report card or university transcript. But what exactly does it mean, and how is it calculated? Do not worry — by the end of this guide, you will understand it completely, even if math is not your favourite subject.
+</p>
 
-  </div>
-</header>
+<p>
+<strong>CGPA</strong> stands for <strong>Cumulative Grade Point Average</strong>. Simply put, it is a number that shows your overall academic performance across all your courses and semesters, not just one exam or one subject.
+</p>
 
-<!-- ===================== BLOG CONTENT ===================== -->
-<div class="container">
-  <article class="blog-article">
-    <h1>Your Blog Title Here</h1>
-    <p>Published on: <strong>DD/MM/YYYY</strong></p>
+<p>
+Think of it like this: imagine your CGPA is a scoreboard that keeps track of how well you have done in every subject throughout your entire course of study. Employers, universities, and scholarship committees look at this number to understand how consistent and hardworking a student you are.
+</p>
 
-    <p>Start writing your blog here. You can add multiple paragraphs, images, headings, lists, etc.</p>
+<h2>Why Can't We Just Average All Our Grades?</h2>
 
-    <h2>Subheading Example</h2>
-    <p>More content under a subheading...</p>
+<p>
+Great question! Here is the thing: not all subjects carry the same importance. A <strong>4-credit subject</strong> like Mathematics takes more time and effort than a <strong>1-credit elective</strong>. So treating them equally would be unfair.
+</p>
 
-    <ul>
-      <li>Point 1</li>
-      <li>Point 2</li>
-      <li>Point 3</li>
-    </ul>
+<p>
+This is why CGPA uses something called a <strong>weighted average</strong>. It gives more importance to subjects with more credits. The heavier the subject, the more it impacts your CGPA.
+</p>
 
-    <p>End of the blog content.</p>
-  </article>
+<div class="highlight">
+🎯 <strong>Simple Idea:</strong> A subject worth 4 credits impacts your CGPA more than a subject worth 1 credit. CGPA rewards you proportionally for your effort in bigger subjects.
 </div>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="footer">
-  <div class="footer-content">
+<h2>Step 1 – Understand Your Grading Scale</h2>
 
-    <div class="footer-left">
-      <strong>Mohammad Nasir</strong><br>
-      CGPA Calculator & Academic Tools Specialist<br>
-      Built for university students worldwide
-    </div>
+<p>
+Before calculating CGPA, you need to know what grading scale your institution uses. Most countries follow one of two systems:
+</p>
 
-    <div class="footer-right">
-      Contact Me:<br>
-      <a href="mailto:mail.me.nasir3@gmail.com">mail.me.nasir3@gmail.com</a>
-    </div>
+<ul>
+<li><strong>4.0 Scale</strong> – Used in the United States and many international universities</li>
+<li><strong>10.0 Scale</strong> – Used in India and several South Asian universities</li>
+</ul>
 
-  </div>
-</footer>
+<p>Here is a simple reference table:</p>
 
-<!-- Optional JS -->
-<script src="script.js"></script>
+<table>
+<tr>
+<th>Letter Grade</th>
+<th>US 4.0 Scale</th>
+<th>India 10.0 Scale</th>
+</tr>
+
+<tr>
+<td>A / O (Outstanding)</td>
+<td>4.0</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>A+</td>
+<td>4.0</td>
+<td>9</td>
+</tr>
+
+<tr>
+<td>A</td>
+<td>3.7 – 4.0</td>
+<td>8</td>
+</tr>
+
+<tr>
+<td>B+</td>
+<td>3.3</td>
+<td>7</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>3.0</td>
+<td>6</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>2.0</td>
+<td>5</td>
+</tr>
+
+<tr>
+<td>F (Fail)</td>
+<td>0.0</td>
+<td>0</td>
+</tr>
+
+</table>
+
+<p>
+Your university's grade sheet will always tell you which scale they use. When in doubt, check your transcript or ask your academic advisor.
+</p>
+
+<h2>Step 2 – Calculate Quality Points for Each Subject</h2>
+
+<p>
+Now comes the key step. For each subject, you need to calculate something called <strong>Quality Points</strong>.
+</p>
+
+<p><strong>Formula:</strong></p>
+
+<p><strong>Quality Points = Grade Point × Credit Hours</strong></p>
+
+<p>
+Example: Suppose you scored an <strong>A (4.0)</strong> in Mathematics and the course is worth <strong>4 credits</strong>.
+</p>
+
+<p>
+<strong>4.0 × 4 = 16 Quality Points</strong>
+</p>
+
+<p>
+You simply repeat this calculation for every subject.
+</p>
+
+<h2>Step 3 – Add Everything and Divide</h2>
+
+<p>
+Once you have quality points for every subject, the CGPA formula becomes very simple:
+</p>
+
+<p><strong>CGPA = Total Quality Points ÷ Total Credit Hours</strong></p>
+
+<p>Example with five subjects:</p>
+
+<table>
+
+<tr>
+<th>Subject</th>
+<th>Grade Point</th>
+<th>Credits</th>
+<th>Quality Points</th>
+</tr>
+
+<tr>
+<td>Mathematics</td>
+<td>4.0</td>
+<td>4</td>
+<td>16.0</td>
+</tr>
+
+<tr>
+<td>Physics</td>
+<td>3.7</td>
+<td>3</td>
+<td>11.1</td>
+</tr>
+
+<tr>
+<td>History</td>
+<td>3.0</td>
+<td>3</td>
+<td>9.0</td>
+</tr>
+
+<tr>
+<td>Biology</td>
+<td>3.3</td>
+<td>3</td>
+<td>9.9</td>
+</tr>
+
+<tr>
+<td>English</td>
+<td>4.0</td>
+<td>2</td>
+<td>8.0</td>
+</tr>
+
+<tr>
+<th>Total</th>
+<th></th>
+<th>15</th>
+<th>54.0</th>
+</tr>
+
+</table>
+
+<p>
+<strong>Final Calculation:</strong> 54.0 ÷ 15 = <strong>3.60 CGPA</strong>
+</p>
+
+<h2>Converting CGPA to Percentage</h2>
+
+<p>
+Many job applications ask for percentage instead of CGPA.
+</p>
+
+<ul>
+<li><strong>CBSE / Indian Standard:</strong> CGPA × 9.5</li>
+<li><strong>General 10 Point Scale:</strong> CGPA × 10</li>
+<li><strong>US 4.0 Scale:</strong> Check your university conversion chart</li>
+</ul>
+
+<p>Example:</p>
+
+<p>
+If your CGPA is <strong>8.2</strong>:
+</p>
+
+<p>
+<strong>8.2 × 9.5 = 77.9%</strong>
+</p>
+
+<h2>Important Things Every Student Should Know</h2>
+
+<h3>1. Failing a Subject Hurts Your CGPA</h3>
+
+<p>
+If you fail a subject, you earn <strong>0 grade points</strong>, but the credit hours are still counted. This can reduce your CGPA significantly.
+</p>
+
+<h3>2. Pass / Fail Courses Don't Count</h3>
+
+<p>
+Courses taken on a Pass/Fail basis or audit courses are usually excluded from CGPA calculations.
+</p>
+
+<h3>3. CGPA is Rounded</h3>
+
+<p>
+Most institutions round CGPA to <strong>two decimal places</strong>.
+</p>
+
+<h3>4. CGPA is Cumulative</h3>
+
+<p>
+CGPA includes <strong>all semesters</strong>. Even if one semester is bad, consistent performance later can improve it.
+</p>
+
+<h2>Quick Recap – 3 Easy Steps</h2>
+
+<ul>
+<li>Find grade points for each subject.</li>
+<li>Multiply grade point × credit hours.</li>
+<li>Add quality points and divide by total credits.</li>
+</ul>
+
+<div class="tip">
+💡 <strong>Final Tip:</strong> Keep a spreadsheet tracking your grades and credits each semester. It helps you understand where you stand and how to improve your CGPA.
+</div>
+
+<p>
+Your CGPA is not just a number — it reflects your effort and consistency. Understand it, track it, and use it to guide your academic journey.
+</p>
+
+</div>
 
 </body>
 </html>
