@@ -750,9 +750,7 @@ tbody tr:hover {
 .cgpa-percentage tbody tr:hover {
   background: #f9fafb;
 }
-/* =========================
-   FAQ SECTION
-========================= */
+/* FAQ Section */
 .faq-section {
   margin-top: 40px;
 }
@@ -776,33 +774,36 @@ tbody tr:hover {
   margin: 0;
   position: relative;
   color: var(--primary);
+  padding-right: 24px;
 }
 
 .faq-question::after {
   content: "+";
   position: absolute;
   right: 0;
+  top: 0;
   font-size: 18px;
   transition: transform 0.3s;
 }
 
 .faq-item.active .faq-question::after {
   content: "-";
-  transform: rotate(180deg);
 }
 
 .faq-answer {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
   font-size: 15px;
   line-height: 1.7;
   color: #374151;
-  margin-top: 8px;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding-top: 0;
 }
 
 .faq-item.active .faq-answer {
-  display: block;
+  max-height: 1000px; /* Enough to show content */
+  padding-top: 8px;
 }
-
 /* =====================================================
    FOOTER
 ===================================================== */
@@ -1022,6 +1023,7 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
 
 
 
