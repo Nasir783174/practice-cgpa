@@ -486,6 +486,100 @@ tbody tr:hover {
   color: #374151;
   margin-bottom: 14px;
 }
+/* =========================
+   CGPA SYSTEM EXPLANATION
+========================= */
+
+.cgpa-system {
+  margin-top: 40px;
+}
+
+.cgpa-system h2 {
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.cgpa-system p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 14px;
+}
+
+.cgpa-steps {
+  margin: 10px 0 18px 20px;
+  padding-left: 10px;
+}
+
+.cgpa-steps li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.cgpa-formula {
+  background: #f9fafb;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+/* =========================
+   CGPA SCALES TABLE
+========================= */
+.cgpa-scales {
+  margin-top: 40px;
+}
+
+.cgpa-scales h2 {
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.cgpa-scales h3 {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.cgpa-scales p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.cgpa-scales .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.cgpa-scales table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 300px; /* ensures horizontal scroll on small devices */
+}
+
+.cgpa-scales th,
+.cgpa-scales td {
+  text-align: left;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+}
+
+.cgpa-scales th {
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.cgpa-scales tbody tr:hover {
+  background: #f9fafb;
+}
 
 /* =====================================================
    FOOTER
@@ -607,6 +701,31 @@ tbody tr:hover {
 .grading-system p{
   font-size:14px;
 }
+   .cgpa-system h2{
+  font-size:18px;
+}
+
+.cgpa-system p{
+  font-size:14px;
+}
+
+.cgpa-steps li{
+  font-size:14px;
+}
+    .cgpa-scales h2{
+    font-size:18px;
+  }
+  .cgpa-scales h3{
+    font-size:16px;
+  }
+  .cgpa-scales p{
+    font-size:14px;
+  }
+  .cgpa-scales th,
+  .cgpa-scales td{
+    font-size:13px;
+    padding:6px;
+  }
 
   /* Mobile menu toggle already covered */
 }
@@ -647,4 +766,5 @@ tbody tr:hover {
   0% { background-color: #e0e7ff; }
   100% { background-color: transparent; }
 }
+
 
