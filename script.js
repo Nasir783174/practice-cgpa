@@ -267,9 +267,7 @@ if(downloadPdfBtn){
     doc.save("Full_Marksheet.pdf");
   });
 }
-// =========================
 // FAQ TOGGLE
-// =========================
 document.querySelectorAll(".faq-question").forEach(q => {
   q.addEventListener("click", () => {
     const item = q.parentElement;
@@ -295,4 +293,5 @@ if(menuToggle && navMenu){
 window.addEventListener("DOMContentLoaded", function(){
   if(semesterSection) addSemester();
 });
+
 
